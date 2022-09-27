@@ -58,6 +58,8 @@ async function filter() {
   for (let i = 0; i < cards.length; i++) {
     if (cards[i].classList.contains("europe")) {
       cards[i].style.display = "block";
+    } else if (cards[i].classList.contains("asia")) {
+      cards[i].style.display = "block";
     } else {
       cards[i].style.display = "none";
     }

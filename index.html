@@ -19,13 +19,13 @@
     <input type="text" name="" id="" placeholder="Search for a country..." />
 
     <div class="region-filter" style="width: 200px">
-      <select name="countries" id="">
+      <select name="countries" id="filter-select" onchange="filter()">
         <option class="filter" value="" disabled selected hidden>
           Filter by Region
         </option>
         <option value="africa">Africa</option>
-        <option value="america">America</option>
-        <option value="europa">Europa</option>
+        <option value="americas">America</option>
+        <option value="europe">Europe</option>
         <option value="asia">Asia</option>
         <option value="oceania">Oceania</option>
       </select>

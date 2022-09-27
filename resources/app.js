@@ -1,27 +1,26 @@
-let data = [];
-
 let response = fetch("https://restcountries.com/v3.1/all")
   .then((res) => res.json())
-  .then((data) => console.log(data));
+  .then((data) =>
+    data.forEach((element) => {
+      let card = document.createElement("div");
+      let flag = document.createElement("img");
+      let name = document.createElement("h2");
+      let population = document.createElement("p");
+      let region = document.createElement("p");
+      let capital = document.createElement("p");
 
-const names = data.name.map((x) => console.log(x));
+      name.textContent = element.name.common;
+      flag.src = element.flags.png;
+      population.textContent = "Population: " + element.population;
+      region.textContent = "Region: " + element.region;
+      capital.textContent = "Capital: " + element.capital;
+      card.append(flag, name, population, region, capital);
 
-console.log(names);
+      document.getElementById("country-div").appendChild(card);
+    })
+  );
 
+//   return '<div>' + '<h2>'</div>'
+// ce
 
-function myFunction() {
-    document.getElementById(“myDropdown”).classList.toggle(“show”);
-  }
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches(‘.dropbtn’)) {
-      var dropdowns = document.getElementsByClassName(“dropdown-content”);
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains(‘show’)) {
-         openDropdown.classList.remove(‘show’);
-       }
-      }
-   }
-  }
+//   `<div> ${data}`

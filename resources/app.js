@@ -9,6 +9,9 @@ let response = fetch("https://restcountries.com/v3.1/all")
       let region = document.createElement("p");
       let capital = document.createElement("p");
 
+      card.setAttribute("id", element.name.common.toLowerCase());
+      card.setAttribute("class", "card-div");
+
       name.textContent = element.name.common;
       flag.src = element.flags.png;
       population.textContent = "Population: " + element.population;

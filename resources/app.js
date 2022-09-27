@@ -17,7 +17,6 @@ async function getAll() {
     let capital = document.createElement("p");
 
     card.setAttribute("id", element.name.common.toLowerCase());
-    // card.setAttribute("class", "card-div");
     card.classList.add("card-div", element.region.toLowerCase());
 
     name.textContent = element.name.common;
@@ -34,63 +33,27 @@ async function getAll() {
 getAll();
 
 // code for the search bar
-
 let searchBar = document.getElementById("search-bar");
-
 const cards = document.getElementsByClassName("card-div");
-const arr = Array.from(cards);
-console.log(arr);
-let selectedValue = document
-  .getElementById("filter-select")
-  .value.toLowerCase();
+let region = "";
 
-searchBar.addEventListener("input", () => {
+let searchInput = function () {
   for (let i = 0; i < cards.length; i++) {
-    if (cards[i].id.includes(searchBar.value)) {
+    if (
+      cards[i].id.includes(searchBar.value) &&
+      (region === "" || cards[i].classList.contains(region))
+    ) {
       cards[i].style.display = "block";
     } else {
       cards[i].style.display = "none";
     }
   }
-});
+};
 
-async function filter() {
-  for (let i = 0; i < cards.length; i++) {
-    if (cards[i].classList.contains("europe")) {
-      cards[i].style.display = "block";
-    } else if (cards[i].classList.contains("asia")) {
-      cards[i].style.display = "block";
-    } else {
-      cards[i].style.display = "none";
-    }
-  }
-}
+searchBar.addEventListener("input", searchInput);
 
 // code for the select filter bar
-
-// async function filter() {
-//   let data = await response;
-//   let selectedValue = document.getElementById("filter-select").value;
-//   console.log(
-//     data.filter((region) => region.region.toLowerCase() == selectedValue)
-//   );
-//   if (selectedValue === cards.classList.contains("europe")) {
-//     console.log("asd");
-//     cards.style.display = "block";
-//   } else {
-//     cards.style.display = "none";
-//   }
-// }
-
-// let filter = fetch("https://restcountries.com/v3.1/all")
-// .then((res) => res.json())
-// .then((data) =>
-// data.forEach((element) => {
-//   const americas = element.region.filter(word => 'Americas');
-
-// }
-
-//   return '<div>' + '<h2>'</div>'
-// ce
-
-//   `<div> ${data}`
+async function filter() {
+  region = document.getElementById("filter-select").value.toLowerCase();
+  searchInput();
+}

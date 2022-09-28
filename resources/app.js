@@ -5,6 +5,8 @@ let response = fetch("https://restcountries.com/v3.1/all")
     return data;
   });
 
+document.getElementById("country").style.display = "none";
+
 //create div with text fot all the countries
 async function getAll() {
   let data = await response;
@@ -20,12 +22,20 @@ async function getAll() {
     card.setAttribute("id", element.name.common.toLowerCase());
     card.classList.add("card-div", element.region.toLowerCase());
 
-    //give the click event to every card so we can link it to another html page
+    //give the click event to every card
     card.addEventListener("click", function () {
       document.getElementById("country-div").style.display = "none";
-      // document.getElementById("hh").innerText = "asddas";
+      document.getElementById("country").style.display = "block";
       console.log(card.id);
-      document.getElementById("hh").innerText = element.name.common;
+      document.getElementById("flag").src = element.flags.png;
+      document.getElementById("name").innerText = element.name.common;
+      document.getElementById("population").innerText = element.population;
+      document.getElementById("region").innerText = element.region;
+      document.getElementById("subregion").innerText = element.subregion;
+      document.getElementById("capital").innerText = element.capital;
+      document.getElementById("top-level-domain").innerText = element.tld;
+      // document.getElementById("currency").innerText = element.currencies[0].name;
+      // document.getElementById("languages").innerText = element.languages;
     });
 
     name.textContent = element.name.common;
@@ -65,4 +75,9 @@ searchBar.addEventListener("input", searchInput);
 async function filter() {
   region = document.getElementById("filter-select").value.toLowerCase();
   searchInput();
+}
+
+function goBack() {
+  document.getElementById("country-div").style.display = "block";
+  document.getElementById("country").style.display = "none";
 }

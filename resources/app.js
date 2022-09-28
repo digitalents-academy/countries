@@ -8,6 +8,7 @@ let response = fetch("https://restcountries.com/v3.1/all")
 //create div with text fot all the countries
 async function getAll() {
   let data = await response;
+  let fragment = new DocumentFragment();
   data.forEach((element) => {
     let card = document.createElement("div");
     let flag = document.createElement("img");
@@ -19,6 +20,14 @@ async function getAll() {
     card.setAttribute("id", element.name.common.toLowerCase());
     card.classList.add("card-div", element.region.toLowerCase());
 
+    //give the click event to every card so we can link it to another html page
+    card.addEventListener("click", function () {
+      document.getElementById("country-div").style.display = "none";
+      // document.getElementById("hh").innerText = "asddas";
+      console.log(card.id);
+      document.getElementById("hh").innerText = element.name.common;
+    });
+
     name.textContent = element.name.common;
     flag.src = element.flags.png;
     population.textContent = "Population: " + element.population;
@@ -26,15 +35,15 @@ async function getAll() {
     capital.textContent = "Capital: " + element.capital;
     card.append(flag, name, population, region, capital);
 
-    document.getElementById("country-div").appendChild(card);
+    fragment.appendChild(card);
   });
+  document.getElementById("country-div").appendChild(fragment);
 }
-
-getAll();
+let pageChange = getAll();
 
 // code for the search bar
 let searchBar = document.getElementById("search-bar");
-const cards = document.getElementsByClassName("card-div");
+let cards = document.getElementsByClassName("card-div");
 let region = "";
 
 let searchInput = function () {

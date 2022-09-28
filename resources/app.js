@@ -6,7 +6,7 @@ let response = fetch("https://restcountries.com/v3.1/all")
   });
 
 document.getElementById("country").style.display = "none";
-
+let countryNames = new Map();
 //create div with text fot all the countries
 async function getAll() {
   let data = await response;
@@ -26,7 +26,6 @@ async function getAll() {
     card.addEventListener("click", function () {
       document.getElementById("country-div").style.display = "none";
       document.getElementById("country").style.display = "block";
-      console.log(card.id);
       document.getElementById("flag").src = element.flags.png;
       document.getElementById("name").innerText = element.name.common;
       document.getElementById("population").innerText = element.population;
@@ -36,6 +35,26 @@ async function getAll() {
       document.getElementById("top-level-domain").innerText = element.tld;
       // document.getElementById("currency").innerText = element.currencies[0].name;
       // document.getElementById("languages").innerText = element.languages;
+
+      //remove old buttons if any
+      let borderButtons = document.getElementById("borderButtons");
+      while (borderButtons.hasChildNodes()) {
+        borderButtons.removeChild(borderButtons.lastChild);
+      }
+
+      //create border country buttons
+      if ("borders" in element) {
+        element.borders.forEach(makeButtons);
+      }
+      function makeButtons(countryShort) {
+        let b = document.createElement("button");
+        let currentCountry = countryNames.get(countryShort);
+        b.innerText = currentCountry;
+        b.onclick = function () {
+          document.getElementById(currentCountry.toLowerCase()).click();
+        };
+        document.getElementById("borderButtons").appendChild(b);
+      }
     });
 
     name.textContent = element.name.common;
@@ -44,6 +63,7 @@ async function getAll() {
     region.textContent = "Region: " + element.region;
     capital.textContent = "Capital: " + element.capital;
     card.append(flag, name, population, region, capital);
+    countryNames.set(element.cca3, element.name.common);
 
     fragment.appendChild(card);
   });

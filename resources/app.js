@@ -18,7 +18,6 @@ async function getAll() {
 
     card.setAttribute("id", element.name.common.toLowerCase());
     card.classList.add("card-div", element.region.toLowerCase());
-
     name.textContent = element.name.common;
     flag.src = element.flags.png;
     population.textContent = "Population: " + element.population;

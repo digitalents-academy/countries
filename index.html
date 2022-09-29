@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./resources/header.css" />
-    <link rel="stylesheet" href="./resources/country-filter.css" />
+    <link rel="stylesheet" href="./resources/country-page.css" />
     <title>countries</title>
   </head>
   <body>
@@ -16,40 +16,49 @@
       </div>
     </header>
 
-    <input
-      type="text"
-      name=""
-      id="search-bar"
-      placeholder="Search for a country..."
-    />
+    <div id="country-div">
+      <input
+        type="text"
+        name=""
+        id="search-bar"
+        placeholder="Search for a country..."
+      />
 
-    <div class="region-filter" style="width: 200px">
-      <select name="countries" id="filter-select" onchange="filter()">
-        <option class="filter" value="" disabled selected hidden>
-          Filter by Region
-        </option>
-        <option value="africa">Africa</option>
-        <option value="americas">America</option>
-        <option value="europe">Europe</option>
-        <option value="asia">Asia</option>
-        <option value="oceania">Oceania</option>
-      </select>
+      <div class="region-filter" style="width: 200px">
+        <select name="countries" id="filter-select" onchange="filter()">
+          <option class="filter" value="" disabled selected hidden>
+            Filter by Region
+          </option>
+          <option value="africa">Africa</option>
+          <option value="americas">America</option>
+          <option value="europe">Europe</option>
+          <option value="asia">Asia</option>
+          <option value="oceania">Oceania</option>
+        </select>
+      </div>
     </div>
 
-    <div id="country-div"></div>
-
     <div id="country">
-      <button onclick="goBack()">back</button>
-      <img id="flag" src="" alt="" />
+      <div class="img-button-div">
+        <button id="back-button" onclick="goBack()">back</button>
+        <img id="flag" src="" alt="" />
+      </div>
       <h2 id="name"></h2>
-      <p id="native-name"></p>
-      <p id="population"></p>
-      <p id="region"></p>
-      <p id="subregion"></p>
-      <p id="capital"></p>
-      <p id="top-level-domain"></p>
-      <p id="currencies"></p>
-      <p id="language"></p>
+      <div class="text-div-container">
+        <div class="text-div">
+          <p class="attributes" id="native-name"></p>
+
+          <p class="attributes" id="population"></p>
+          <p class="attributes" id="region"></p>
+          <p class="attributes" id="subregion"></p>
+          <p class="attributes" id="capital"></p>
+        </div>
+        <div class="text-div second-text">
+          <p class="attributes" id="top-level-domain"></p>
+          <p class="attributes" id="currencies"></p>
+          <p class="attributes" id="languages"></p>
+        </div>
+      </div>
       <div id="borderButtons"></div>
     </div>
 

@@ -20,6 +20,9 @@ async function getAll() {
     let capital = document.createElement("p");
 
     card.setAttribute("id", element.name.common.toLowerCase());
+    population.setAttribute("data-parent", "population");
+    region.setAttribute("data-parent", "region");
+    capital.setAttribute("data-parent", "capital");
     card.classList.add("card-div", element.region.toLowerCase());
     function filterBypass(asd) {
       return true;
@@ -28,28 +31,33 @@ async function getAll() {
     card.addEventListener("click", function () {
       document.getElementById("country-div").style.display = "none";
       document.getElementById("country").style.display = "block";
-      // document.getElementById("native-name").innerText =
-      // keys = Object.keys(element.name.nativeName);
-      // console.log(keys);
-      // let a;
-      // keys.forEach((c) => {
-      //   a = c;
-      // });
-      // console.log(a);
-      // document.getElementById("native-name").innerText =
-      //   element.name.nativeName.a.common;
+      // get the values of the first Object
+      let nativeNames = Object.values(element.name.nativeName)[0];
+      let theLanguages = Object.values(element.languages);
+      let theCurrencies = Object.values(element.currencies);
+      let currencyList = [];
+      for (let i = 0; i < theCurrencies.length; i++) {
+        console.log(theCurrencies[i].name);
+      }
+      console.log(theCurrencies);
+
+      document.getElementById("native-name").innerText = nativeNames.common;
       document.getElementById("flag").src = element.flags.png;
       document.getElementById("name").innerText = element.name.common;
-      document.getElementById("population").innerText = element.population;
+      document.getElementById("population").innerText = new Intl.NumberFormat(
+        "ja-JP"
+      ).format(element.population);
       document.getElementById("region").innerText = element.region;
       document.getElementById("subregion").innerText = element.subregion;
       document.getElementById("capital").innerText = element.capital;
-      document.getElementById("top-level-domain").innerText = element.tld;
-      // console.log(element.languages.fil);
-      // document.getElementById("languages").innerText = element.languages;
+      document.getElementById("top-level-domain").innerText =
+        element.tld.join(", ");
+
+      document.getElementById("languages").innerText = theLanguages.join(", ");
       // console.log(element.currencies.BND.symbol);
-      // document.getElementById("currencies").innerText =
-      //   element.currencies.BND.symbol;
+      document.getElementById("currencies").innerText = theCurrencies
+        .map((currency) => currency.name)
+        .join(", ");
 
       // console.log(element.nativeName.filter(true).common);
 
@@ -61,6 +69,9 @@ async function getAll() {
 
       //create border country buttons
       if ("borders" in element) {
+        let h3Text = document.createElement("h3");
+        h3Text.innerText = "Border Countries:";
+        document.getElementById("borderButtons").appendChild(h3Text);
         element.borders.forEach(makeButtons);
       }
       function makeButtons(countryShort) {
@@ -76,9 +87,11 @@ async function getAll() {
 
     name.textContent = element.name.common;
     flag.src = element.flags.png;
-    population.textContent = "Population: " + element.population;
-    region.textContent = "Region: " + element.region;
-    capital.textContent = "Capital: " + element.capital;
+    population.textContent = new Intl.NumberFormat("ja-JP").format(
+      element.population
+    );
+    region.textContent = element.region;
+    capital.textContent = element.capital;
     card.append(flag, name, population, region, capital);
     countryNames.set(element.cca3, element.name.common);
 

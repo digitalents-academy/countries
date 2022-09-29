@@ -21,11 +21,23 @@ async function getAll() {
 
     card.setAttribute("id", element.name.common.toLowerCase());
     card.classList.add("card-div", element.region.toLowerCase());
-
+    function filterBypass(asd) {
+      return true;
+    }
     //give the click event to every card
     card.addEventListener("click", function () {
       document.getElementById("country-div").style.display = "none";
       document.getElementById("country").style.display = "block";
+      // document.getElementById("native-name").innerText =
+      // keys = Object.keys(element.name.nativeName);
+      // console.log(keys);
+      // let a;
+      // keys.forEach((c) => {
+      //   a = c;
+      // });
+      // console.log(a);
+      // document.getElementById("native-name").innerText =
+      //   element.name.nativeName.a.common;
       document.getElementById("flag").src = element.flags.png;
       document.getElementById("name").innerText = element.name.common;
       document.getElementById("population").innerText = element.population;
@@ -33,8 +45,13 @@ async function getAll() {
       document.getElementById("subregion").innerText = element.subregion;
       document.getElementById("capital").innerText = element.capital;
       document.getElementById("top-level-domain").innerText = element.tld;
-      // document.getElementById("currency").innerText = element.currencies[0].name;
+      // console.log(element.languages.fil);
       // document.getElementById("languages").innerText = element.languages;
+      // console.log(element.currencies.BND.symbol);
+      // document.getElementById("currencies").innerText =
+      //   element.currencies.BND.symbol;
+
+      // console.log(element.nativeName.filter(true).common);
 
       //remove old buttons if any
       let borderButtons = document.getElementById("borderButtons");

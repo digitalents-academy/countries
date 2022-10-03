@@ -5,16 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./resources/header.css" />
+
+    <link rel="stylesheet" href="./resources/country-filter.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="./resources/country-page.css" />
+
     <title>countries</title>
   </head>
   <body>
     <header>
       <h1>Where in the World?</h1>
-      <div>
-        <p>Dark Mode</p>
-      </div>
+      
     </header>
+
+    
+    <div class="dark-mode">
+      
+      <img class="dark-icon" src="./resources/moon-outline.svg" >
+      <p>Dark Mode</p>
+    </div>
+    
+    
+    <div class="search-bar-input">
+    
+        <img class="search-icon" src="./resources/search-outline.svg" >
+      
+
+
 
     <div id="country-div">
       <input
@@ -27,6 +50,7 @@
       <div class="region-filter" style="width: 200px">
         <select name="countries" id="filter-select" onchange="filter()">
           <option id="fil" class="filter" value="" disabled selected hidden>
+
             Filter by Region
           </option>
           <option value="africa">Africa</option>
@@ -35,6 +59,7 @@
           <option value="asia">Asia</option>
           <option value="oceania">Oceania</option>
         </select>
+
       </div>
     </div>
 

@@ -54,7 +54,7 @@ img {
 
 .region-filter {
   display: flex;
-  position: absolute;
+  /* position: absolute; */
   left: 840px;
   top: 125px;
 }

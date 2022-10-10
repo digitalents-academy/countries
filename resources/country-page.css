@@ -1,0 +1,40 @@
+.card-div p::before {
+  content: attr(data-parent) ": ";
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.text-div-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Selects all the attributes of the country and give them all their ID as attribute name with the content: attr(id) ": " */
+.attributes::before {
+  content: attr(id) ": ";
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.attributes:first-child::before {
+  content: "Native Name: ";
+
+  font-weight: bold;
+}
+
+.second-text .attributes:first-child::before {
+  content: "Top Level Domain: ";
+
+  font-weight: bold;
+}
+
+.img-button-div {
+  display: flex;
+  flex-direction: column;
+}
+
+#back-button {
+  width: 100px;
+
+  margin-bottom: 4rem;
+}

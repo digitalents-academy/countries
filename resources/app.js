@@ -30,7 +30,6 @@ async function getAll() {
     //adds a class to the card div and we call it like the name of the region of the country and set it to lower case
     card.classList.add("card-div", element.region.toLowerCase());
 
-
     //give the click event to every card so when we click on the country a command will be executed
     card.addEventListener("click", function () {
       document.getElementById("country-div").style.display = "none";
@@ -141,6 +140,6 @@ async function filter() {
 
 //just a go-back button
 function goBack() {
-  document.getElementById("country-div").style.display = "block";
+  document.getElementById("country-div").style.display = "flex";
   document.getElementById("country").style.display = "none";
 }

@@ -34,6 +34,7 @@ async function getAll() {
     card.addEventListener("click", function () {
       document.getElementById("country-div").style.display = "none";
       document.getElementById("country").style.display = "block";
+      document.getElementById("search-filter").style.display = "none";
       // get the values of the first Object because of the index [0]
       let nativeNames = Object.values(element.name.nativeName)[0];
       //get all the values of the object
@@ -142,4 +143,5 @@ async function filter() {
 function goBack() {
   document.getElementById("country-div").style.display = "flex";
   document.getElementById("country").style.display = "none";
+  document.getElementById("search-filter").style.display = "block";
 }

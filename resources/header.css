@@ -4,19 +4,27 @@
   box-sizing: border-box;
 }
 
+.light {
+  background: hsl(0, 0%, 100%);
+  background-color: hsl(0, 0%, 100%);
+}
+
+.dark {
+  background: hsl(209, 23%, 22%);
+  background-color: hsl(209, 23%, 22%);
+  color: white;
+}
+
 body {
   font-family: "Nunito Sans", sans-serif;
-
-  background-color: hsl(0, 0%, 98%);
   font-size: 18px;
-  color: black;
+  /* color: black; */
 }
 
 header {
   padding: 10px;
   padding-left: 4%;
   text-align: left;
-  background: hsl(0, 0%, 100%);
   font-size: 14px;
   display: flex;
   justify-content: space-between;
@@ -39,10 +47,10 @@ header {
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: -3%;
+  background-color: hsl(0, 0%, 98%);
 }
 
 .card-div {
-  background-color: hsl(0, 0%, 100%);
   justify-content: center;
   align-content: center;
   margin: 2rem;
@@ -102,6 +110,7 @@ select {
 #search-filter {
   display: flex;
   /* height: 100px; */
+  background-color: hsl(0, 0%, 98%);
 
   justify-content: space-between;
   padding: 0 2%;
@@ -149,6 +158,7 @@ select {
 #country {
   display: flex;
   margin-top: 5rem;
+  background-color: hsl(0, 0%, 98%);
 }
 
 .text-div-wrapper {

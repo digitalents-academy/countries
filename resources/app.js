@@ -29,7 +29,7 @@ async function getAll() {
     region.setAttribute("data-parent", "region");
     capital.setAttribute("data-parent", "capital");
     //adds a class to the card div and we call it like the name of the region of the country and set it to lower case
-    card.classList.add("card-div", element.region.toLowerCase());
+    card.classList.add("card-div", element.region.toLowerCase(), "light");
 
     //give the click event to every card so when we click on the country a command will be executed
     card.addEventListener("click", function () {
@@ -145,4 +145,42 @@ function goBack() {
   document.getElementById("country-div").style.display = "flex";
   document.getElementById("country").style.display = "none";
   document.getElementById("search-filter").style.display = "flex";
+}
+
+let darkModeOn = false;
+function darkMode() {
+  if (!darkModeOn) {
+    console.log("asd");
+    document
+      .querySelectorAll(".light")
+      .forEach((element) => element.classList.add("dark"));
+    document
+      .querySelectorAll(".light")
+      .forEach((element) => element.classList.remove("light"));
+    // document.querySelector(".text-div-wrapper").style;
+    document.getElementById("country-div").style.backgroundColor =
+      "hsl(207, 26%, 17%)";
+    document.getElementById("search-filter").style.backgroundColor =
+      "hsl(207, 26%, 17%)";
+    document.getElementById("country").style.backgroundColor =
+      "hsl(207, 26%, 17%)";
+    document.body.style.backgroundColor = "hsl(207, 26%, 17%)";
+
+    darkModeOn = true;
+  } else {
+    document
+      .querySelectorAll(".dark")
+      .forEach((element) => element.classList.add("light"));
+    document
+      .querySelectorAll(".dark")
+      .forEach((element) => element.classList.remove("dark"));
+    document.getElementById("country-div").style.backgroundColor =
+      "hsl(0, 0%, 98%)";
+    document.getElementById("search-filter").style.backgroundColor =
+      "hsl(0, 0%, 98%)";
+    document.getElementById("country").style.backgroundColor =
+      "hsl(0, 0%, 98%)";
+    document.body.style.backgroundColor = "hsl(0, 0%, 98%)";
+    darkModeOn = false;
+  }
 }

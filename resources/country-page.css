@@ -1,7 +1,7 @@
 .card-div p::before {
   content: attr(data-parent) ": ";
   text-transform: capitalize;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 /* .text-div-container {
@@ -13,19 +13,19 @@
 .attributes::before {
   content: attr(id) ": ";
   text-transform: capitalize;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .attributes:first-child::before {
   content: "Native Name: ";
 
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .second-text .attributes:first-child::before {
   content: "Top Level Domain: ";
 
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .img-button-div {
@@ -33,8 +33,8 @@
   flex-direction: column;
 }
 
-#back-button {
-  width: 100px;
+/* #back-button {
+  width: 125px;
 
   margin-bottom: 4rem;
-}
+} */

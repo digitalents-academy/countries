@@ -20,7 +20,7 @@
       <h1>Where in the World?</h1>
     </header>
 
-    <div class="dark-mode">
+    <div class="dark-mode-text">
       <img class="dark-icon" src="./resources/moon-outline.svg" />
       <p1>Dark Mode</p1>
     </div>
@@ -52,7 +52,14 @@
 
     <div id="country-div"></div>
     <div id="country">
-      <button id="back-button" onclick="goBack()">back</button>
+      <button
+        id="back-button"
+        style="font-size: 16px; font-weight: 400"
+        onclick="goBack()"
+      >
+        Back
+      </button>
+      <img class="back-button-icon" src="./resources/arrow-back-outline.svg" />
       <div class="text-div-container">
         <div class="img-button-div">
           <img id="flag" src="" alt="" />

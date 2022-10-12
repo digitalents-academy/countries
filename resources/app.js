@@ -21,6 +21,7 @@ async function getAll() {
     let population = document.createElement("p");
     let region = document.createElement("p");
     let capital = document.createElement("p");
+
     //Set id for the country container (div)
     card.setAttribute("id", element.name.common.toLowerCase());
     //data-parent stores informations inside an element (something like id or class) that can be called afterwards for the styling
@@ -143,5 +144,5 @@ async function filter() {
 function goBack() {
   document.getElementById("country-div").style.display = "flex";
   document.getElementById("country").style.display = "none";
-  document.getElementById("search-filter").style.display = "block";
+  document.getElementById("search-filter").style.display = "flex";
 }

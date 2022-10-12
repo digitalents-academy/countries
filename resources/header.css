@@ -6,24 +6,27 @@
 
 body {
   font-family: "Nunito Sans", sans-serif;
-  background-color: hsl(207, 26%, 17%);
+
+  background-color: hsl(0, 0%, 98%);
   font-size: 18px;
-  color: white;
+  color: black;
 }
 
 header {
   padding: 10px;
   padding-left: 4%;
   text-align: left;
-  background: hsl(209, 23%, 22%);
+  background: hsl(0, 0%, 100%);
   font-size: 14px;
   display: flex;
   justify-content: space-between;
+  box-shadow: 5px 5px 10px #1d1c1c4c;
 }
 
-.dark-mode {
+.dark-mode-text {
   justify-content: right;
   font-size: 14px;
+  font-weight: 600;
   display: flex;
   padding-right: 5%;
   position: relative;
@@ -39,7 +42,7 @@ header {
 }
 
 .card-div {
-  background-color: hsl(209, 23%, 22%);
+  background-color: hsl(0, 0%, 100%);
   justify-content: center;
   align-content: center;
   margin: 2rem;
@@ -47,17 +50,25 @@ header {
   min-width: 320px;
   max-width: 320px;
   border-radius: 5px;
-  box-shadow: 5px 5px 10px #1d1c1c;
+  box-shadow: 5px 5px 10px #1d1c1c4c;
+  cursor: pointer;
 }
 
 h2 {
   padding: 1%;
   margin: 2%;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+h3 {
+  font-weight: 300;
 }
 
 p {
   padding: 1%;
   margin: 2%;
+  font-weight: 300;
 }
 
 img {
@@ -68,27 +79,30 @@ img {
 
 .region-filter {
   display: flex;
-
+  justify-content: right;
   margin: 2rem;
   height: 50px;
 }
 
 select {
   cursor: pointer;
-  background-color: hsl(209, 23%, 22%);
+  background-color: hsl(0, 0%, 100%);
   margin-left: auto;
   padding: 12px 16px;
   border-radius: 5px;
   border: none;
   width: 100%;
+  box-shadow: 5px 5px 10px #1d1c1c4c;
 }
 
 #filter-select {
-  color: white;
+  color: black;
 }
 
 #search-filter {
   display: flex;
+  /* height: 100px; */
+
   justify-content: space-between;
   padding: 0 2%;
   margin-top: 1%;
@@ -101,18 +115,18 @@ select {
 }
 
 .search-bar-input input {
-  background-color: hsl(209, 23%, 22%);
+  background-color: hsl(0, 0%, 100%);
   border: none;
   outline: none;
   height: 50px;
-
+  box-shadow: 5px 5px 10px #1d1c1c4c;
   border-radius: 8px;
-  color: white;
+  color: black;
   padding-left: 40px;
 }
 
 .search-bar-input input::placeholder {
-  color: white;
+  color: black;
 }
 
 .search-icon {
@@ -121,7 +135,6 @@ select {
   position: relative;
   left: 35px;
   top: 12px;
-  filter: invert(100%);
 }
 
 .dark-icon {
@@ -130,7 +143,7 @@ select {
   position: relative;
   right: 10px;
   top: -5px;
-  filter: invert(100%);
+  /* filter: invert(100%); */
 }
 
 #country {
@@ -139,7 +152,7 @@ select {
 }
 
 .text-div-wrapper {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   width: 50%;
   height: 50%;
   display: flex;
@@ -151,7 +164,7 @@ select {
   flex-direction: column;
   justify-content: flex-start;
   height: 220px;
-  border: 2px solid blue;
+  border: 2px solid transparent;
   /* top: -500px; */
   /* position: relative; */
   display: flex;
@@ -160,7 +173,7 @@ select {
 }
 
 .text-div-container {
-  border: 2px solid;
+  /* border: 2px solid; */
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -169,9 +182,11 @@ select {
 #borderButtons {
   width: 100%;
   height: 5rem;
-  border: 1px solid red;
+  border: 1px solid transparent;
   display: flex;
   flex-wrap: wrap;
+  margin-left: 22px;
+  margin-top: 30px;
 }
 
 #borderButtons button {
@@ -179,12 +194,19 @@ select {
   padding: 0 0.5rem;
   margin-left: 0.7rem;
   margin-bottom: 0.8rem;
+  color: black;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0px 0px 10px #1d1c1c56;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
 }
 
 #name {
   display: flex;
   position: relative;
   width: 100%;
+  margin-left: 12px;
   /* left: 1100px; */
   /* top: -460px; */
 }
@@ -192,12 +214,40 @@ select {
 .img-button-div {
   margin-left: 5%;
   /* z-index: -1; */
-  border: 2px solid red;
+  border: 2px solid transparent;
   width: 50%;
 }
 
 #flag {
   width: 600px;
   height: 450px;
-  object-fit: cover;
+  /* object-fit: cover; */
+  border: 25px solid rgba(0, 0, 0, 0.059);
+  border-radius: 4px;
+}
+
+#back-button {
+  display: flex;
+  width: 125px;
+  margin: 120px;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0px 0px 10px #1d1c1c7d;
+  height: 35px;
+  cursor: pointer;
+
+  border-radius: 6px;
+
+  border: none;
+}
+
+.back-button-icon {
+  height: 22px;
+  width: 22px;
+  position: relative;
+  left: 135px;
+  top: -148px;
+  /* filter: invert(100%); */
 }

@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./resources/header.css" />
-
-    <link rel="stylesheet" href="./resources/country-filter.css" />
+    <link rel="stylesheet" href="./resources/country-page.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,16 +13,14 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="./resources/country-page.css" />
-
     <title>countries</title>
   </head>
   <body>
-    <header>
+    <header class="light">
       <h1>Where in the World?</h1>
     </header>
 
-    <div class="dark-mode">
+    <div class="dark-mode-text" onclick="darkMode()">
       <img class="dark-icon" src="./resources/moon-outline.svg" />
       <p1>Dark Mode</p1>
     </div>
@@ -55,28 +52,36 @@
 
     <div id="country-div"></div>
     <div id="country">
-      <h2 id="name"></h2>
+      <button
+        id="back-button"
+        style="font-size: 16px; font-weight: 400"
+        onclick="goBack()"
+      >
+        Back
+      </button>
+      <img class="back-button-icon" src="./resources/arrow-back-outline.svg" />
       <div class="text-div-container">
         <div class="img-button-div">
-          <button id="back-button" onclick="goBack()">back</button>
           <img id="flag" src="" alt="" />
         </div>
+        <div class="text-div-wrapper">
+          <h2 id="name"></h2>
+          <div class="text-div">
+            <p class="attributes" id="native-name"></p>
 
-        <div class="text-div">
-          <p class="attributes" id="native-name"></p>
-
-          <p class="attributes" id="population"></p>
-          <p class="attributes" id="region"></p>
-          <p class="attributes" id="subregion"></p>
-          <p class="attributes" id="capital"></p>
-        </div>
-        <div class="text-div second-text">
-          <p class="attributes" id="top-level-domain"></p>
-          <p class="attributes" id="currencies"></p>
-          <p class="attributes" id="languages"></p>
+            <p class="attributes" id="population"></p>
+            <p class="attributes" id="region"></p>
+            <p class="attributes" id="subregion"></p>
+            <p class="attributes" id="capital"></p>
+          </div>
+          <div class="text-div second-text">
+            <p class="attributes" id="top-level-domain"></p>
+            <p class="attributes" id="currencies"></p>
+            <p class="attributes" id="languages"></p>
+          </div>
+          <div id="borderButtons"></div>
         </div>
       </div>
-      <div id="borderButtons"></div>
     </div>
 
     <script src="./resources/app.js"></script>

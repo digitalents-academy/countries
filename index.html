@@ -18,16 +18,22 @@
   <body>
     <header class="light">
       <h1>Where in the World?</h1>
+      <div class="dark-mode-text">
+        <img
+          class="dark-icon icon-light"
+          src="./resources/moon-outline.svg"
+          onclick="darkMode()"
+        />
+        <p onclick="darkMode()">Dark Mode</p>
+      </div>
     </header>
-
-    <div class="dark-mode-text" onclick="darkMode()">
-      <img class="dark-icon" src="./resources/moon-outline.svg" />
-      <p1>Dark Mode</p1>
-    </div>
 
     <div id="search-filter">
       <div class="search-bar-input">
-        <img class="search-icon" src="./resources/search-outline.svg" />
+        <img
+          class="search-icon icon-light"
+          src="./resources/search-outline.svg"
+        />
 
         <input
           class="light"
@@ -65,7 +71,10 @@
       >
         Back
       </button>
-      <img class="back-button-icon" src="./resources/arrow-back-outline.svg" />
+      <img
+        class="back-button-icon icon-light"
+        src="./resources/arrow-back-outline.svg"
+      />
       <div class="text-div-container">
         <div class="img-button-div">
           <img id="flag" src="" alt="" />

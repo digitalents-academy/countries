@@ -189,6 +189,12 @@ function darkMode() {
       "hsl(207, 26%, 17%)";
     document.body.style.backgroundColor = "hsl(207, 26%, 17%)";
 
+    document
+      .querySelectorAll(".icon-light")
+      .forEach((element) => element.classList.add("icon-dark"));
+    document
+      .querySelectorAll(".icon-light")
+      .forEach((element) => element.classList.remove("icon-light"));
     darkModeOn = true;
   } else {
     document
@@ -213,6 +219,13 @@ function darkMode() {
     document.getElementById("country").style.backgroundColor =
       "hsl(0, 0%, 98%)";
     document.body.style.backgroundColor = "hsl(0, 0%, 98%)";
+    document
+      .querySelectorAll(".icon-dark")
+      .forEach((element) => element.classList.add("icon-light"));
+    document
+      .querySelectorAll(".icon-dark")
+      .forEach((element) => element.classList.remove("icon-dark"));
+
     darkModeOn = false;
   }
 }

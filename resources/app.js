@@ -96,6 +96,7 @@ async function getAll() {
         }
         let currentCountry = countryNames.get(countryShort);
         b.innerText = currentCountry;
+        (b.style.font = "Nunito Sans"), "sans-serif";
         b.onclick = function () {
           document.getElementById(currentCountry.toLowerCase()).click();
         };

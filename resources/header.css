@@ -2,6 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+  /* letter-spacing: 1px; */
 }
 
 .light {
@@ -18,6 +20,7 @@
 body {
   font-family: "Nunito Sans", sans-serif;
   font-size: 18px;
+  background-color: hsl(0, 0%, 98%);
   /* color: black; */
 }
 
@@ -28,7 +31,7 @@ header {
   font-size: 14px;
   display: flex;
   justify-content: space-between;
-  box-shadow: 5px 5px 10px #1d1c1c4c;
+  box-shadow: 5px 1px 10px #1d1c1c4c;
   height: 80px;
   align-items: center;
 }
@@ -73,21 +76,22 @@ header h1 {
   cursor: pointer;
 }
 
-h2 {
-  padding: 1%;
+.card-div h2 {
   margin: 2%;
-  font-size: 32px;
-  font-weight: 800;
+  font-size: 28px;
+  font-weight: 700;
+  padding-left: 18px;
+  padding-top: 9px;
 }
 
 h3 {
   font-weight: 300;
 }
 
-p {
-  padding: 1%;
+.card-div p {
   margin: 2%;
   font-weight: 300;
+  padding-left: 18px;
 }
 
 img {
@@ -103,7 +107,20 @@ img {
   height: 50px;
 }
 
+/* .filter-select {
+  
+  cursor: pointer;
+  background-color: hsl(0, 0%, 100%);
+  margin-left: auto;
+  padding: 12px 16px;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+
+  box-shadow: 5px 5px 10px #1d1c1c4c;
+} */
 select {
+  font-weight: 600;
   cursor: pointer;
   background-color: hsl(0, 0%, 100%);
   margin-left: auto;
@@ -114,10 +131,6 @@ select {
   box-shadow: 5px 5px 10px #1d1c1c4c;
 }
 
-#filter-select {
-  /* color: black; */
-}
-
 #search-filter {
   display: flex;
   /* height: 100px; */
@@ -126,12 +139,16 @@ select {
   justify-content: space-between;
   padding: 0 2%;
   margin-top: 1%;
+  margin-left: 6px;
+  margin-right: 2px;
 }
 
 .search-bar-input {
   display: flex;
   padding: 2rem;
   padding-left: 0.3rem;
+  width: 40%;
+  min-width: 280px;
 }
 
 .search-bar-input input {
@@ -143,17 +160,25 @@ select {
   border-radius: 8px;
   /* color: black; */
   padding-left: 40px;
+  width: 100%;
 }
 
-.search-bar-input input::placeholder {
+#country-div img {
+  box-shadow: 0px 10px 15px hsla(0, 0%, 0%, 0.068);
+}
+#absolute-container {
+  height: 0px;
+
+  width: 0px;
+  position: absolute;
 }
 
-.search-icon {
-  height: 28px;
-  width: 28px;
+#search-icon {
+  height: 20px;
+  width: 20px;
   position: relative;
-  left: 35px;
-  top: 12px;
+  left: 15px;
+  top: 14px;
 }
 
 .dark-icon {
@@ -184,23 +209,26 @@ select {
 
 .text-div-wrapper {
   /* border: 1px solid green; */
-  width: 50%;
+  width: 40%;
   height: 50%;
   display: flex;
   flex-wrap: wrap;
   /* margin-top: 5rem; */
+  justify-content: space-between;
 }
 
 .text-div {
   flex-direction: column;
   justify-content: flex-start;
-  height: 220px;
+
+  height: auto;
+  max-height: 320;
   border: 2px solid transparent;
   /* top: -500px; */
   /* position: relative; */
   display: flex;
-  margin: 10px;
-  width: 40%;
+  /* margin: 10px; */
+  width: auto;
 }
 
 .text-div-container {
@@ -210,22 +238,33 @@ select {
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.text-div-second {
+  /* margin-left: 10px; */
 }
 
 #borderButtons {
   width: 100%;
-  height: 5rem;
+  /* height: 5rem; */
   border: 1px solid transparent;
   display: flex;
   flex-wrap: wrap;
-  margin-left: 22px;
+
+  /* margin-left: 22px; */
   margin-top: 30px;
 }
 
+#borderButtons h3 {
+  margin-right: 17px;
+}
+
 #borderButtons button {
-  height: 2rem;
-  padding: 0 0.5rem;
-  margin-left: 0.7rem;
+  height: 29px;
+  padding: 0 0.8rem;
+  /* margin-left: 0.7rem; */
+  margin-right: 10px;
   margin-bottom: 0.8rem;
   /* color: black;
   background-color: hsl(0, 0%, 100%); */
@@ -239,22 +278,30 @@ select {
   display: flex;
   position: relative;
   width: 100%;
-  margin-left: 12px;
+  /* margin-left: 12px; */
   /* left: 1100px; */
   /* top: -460px; */
+  margin-bottom: 10px;
+}
+
+.text-div p {
+  margin-bottom: 8px;
 }
 
 .img-button-div {
   /* margin-left: 5%; */
   /* z-index: -1; */
-  border: 2px solid transparent;
+
   width: 40%;
+  height: auto;
+  min-width: 300px;
+  max-width: 600px;
 }
 
 #flag {
   width: auto;
   height: auto;
-  max-width: 600px;
+  /* max-width: 600px; */
   min-width: 300px;
   /* width: 30px; */
   /* object-fit: cover; */
@@ -264,8 +311,11 @@ select {
 
 #back-button {
   display: flex;
-  width: 125px;
-  margin: 120px;
+
+  width: 100px;
+  margin-left: 24px;
+  /* position: relative; */
+
   justify-content: center;
   align-items: center;
   /* color: black;
@@ -273,17 +323,132 @@ select {
   box-shadow: 0px 0px 10px #1d1c1c7d;
   height: 35px;
   cursor: pointer;
+  text-align: right;
 
   border-radius: 6px;
 
   border: none;
 }
 
+#button-styling-div {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 70px;
+}
+#empty-div {
+  min-width: 40%;
+  border: solid green;
+}
+
+#button-holder {
+  width: 40%;
+  height: auto;
+  min-width: 300px;
+  max-width: 600px;
+}
+
 .back-button-icon {
   height: 22px;
   width: 22px;
   position: relative;
-  left: 135px;
-  top: -148px;
+  left: -5px;
+
   /* filter: invert(100%); */
+}
+
+@media only screen and (max-width: 816px) {
+  #country-div {
+    flex-direction: column;
+
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #search-filter {
+    /* border: solid green; */
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .card-div {
+    margin: 0;
+    margin-bottom: 4rem;
+  }
+  .search-bar-input {
+    width: 100%;
+    padding-bottom: 15px;
+
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+  }
+
+  #search-bar {
+    width: 100%;
+    margin: 0;
+  }
+
+  #country {
+    flex-direction: column;
+  }
+
+  .text-div-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text-div-wrapper {
+    width: 85%;
+  }
+
+  .img-button-div {
+    width: 85%;
+  }
+
+  #name {
+    margin-top: 30px;
+  }
+
+  #button-styling-div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    margin-right: 0;
+    /* border: solid red; */
+    height: 50px;
+  }
+
+  #country {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+  }
+
+  #empty-div {
+    display: none;
+  }
+
+  #button-holder {
+    width: 85%;
+    margin-left: 47px;
+    /* border: solid blue; */
+  }
+
+  #back-button {
+    margin: 0;
+  }
+
+  header h1 {
+    font-size: 17px;
+  }
+
+  .region-filter {
+    margin-left: 0;
+  }
 }

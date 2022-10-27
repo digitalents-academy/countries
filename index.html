@@ -30,11 +30,9 @@
 
     <div id="search-filter">
       <div class="search-bar-input">
-        <img
-          class="search-icon icon-light"
-          src="./resources/search-outline.svg"
-        />
-
+        <div id="absolute-container">
+          <img id="search-icon" src="./resources/search-outline.svg" />
+        </div>
         <input
           class="light"
           type="text"
@@ -63,18 +61,25 @@
     </div>
 
     <div id="country-div"></div>
+
     <div id="country">
-      <button
-        id="back-button"
-        style="font-size: 16px; font-weight: 400"
-        onclick="goBack()"
-      >
-        Back
-      </button>
-      <img
-        class="back-button-icon icon-light"
-        src="./resources/arrow-back-outline.svg"
-      />
+      <div id="button-styling-div">
+        <div id="button-holder">
+          <button
+            id="back-button"
+            style="font-size: 16px; font-weight: 400"
+            onclick="goBack()"
+          >
+            <img
+              class="back-button-icon icon-light"
+              src="./resources/arrow-back-outline.svg"
+            />
+            Back
+          </button>
+        </div>
+        <div id="empty-div"></div>
+      </div>
+
       <div class="text-div-container">
         <div class="img-button-div">
           <img id="flag" src="" alt="" />

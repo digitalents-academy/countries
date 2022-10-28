@@ -5,6 +5,7 @@ let response = fetch("https://restcountries.com/v3.1/all")
     return data;
   });
 
+let darkModeOn = false;
 document.getElementById("country").style.display = "none";
 let countryNames = new Map();
 //create div with text fot all the countries
@@ -21,6 +22,7 @@ async function getAll() {
     let population = document.createElement("p");
     let region = document.createElement("p");
     let capital = document.createElement("p");
+
     //Set id for the country container (div)
     card.setAttribute("id", element.name.common.toLowerCase());
     //data-parent stores informations inside an element (something like id or class) that can be called afterwards for the styling
@@ -28,12 +30,15 @@ async function getAll() {
     region.setAttribute("data-parent", "region");
     capital.setAttribute("data-parent", "capital");
     //adds a class to the card div and we call it like the name of the region of the country and set it to lower case
-    card.classList.add("card-div", element.region.toLowerCase());
+
+    card.classList.add("card-div", element.region.toLowerCase(), "light");
+
 
     //give the click event to every card so when we click on the country a command will be executed
     card.addEventListener("click", function () {
       document.getElementById("country-div").style.display = "none";
       document.getElementById("country").style.display = "block";
+      document.getElementById("search-filter").style.display = "none";
       // get the values of the first Object because of the index [0]
       let nativeNames = Object.values(element.name.nativeName)[0];
       //get all the values of the object
@@ -71,6 +76,13 @@ async function getAll() {
       if ("borders" in element) {
         let h3Text = document.createElement("h3");
         h3Text.innerText = "Border Countries:";
+        h3Text.style.fontWeight = "600";
+        if (darkModeOn) {
+          h3Text.style.color = "white";
+        } else {
+          h3Text.style.color = "black";
+        }
+
         document.getElementById("borderButtons").appendChild(h3Text);
         // borders lists all border countries in cca3 format
         // cca3 is three letter addreviation of a country
@@ -79,8 +91,14 @@ async function getAll() {
       //this function creates one button for every country
       function makeButtons(countryShort) {
         let b = document.createElement("button");
+        if (darkModeOn) {
+          b.className = "dark";
+        } else {
+          b.className = "light";
+        }
         let currentCountry = countryNames.get(countryShort);
         b.innerText = currentCountry;
+        (b.style.font = "Nunito Sans"), "sans-serif";
         b.onclick = function () {
           document.getElementById(currentCountry.toLowerCase()).click();
         };
@@ -126,6 +144,9 @@ let searchInput = function () {
   }
 };
 searchBar.addEventListener("input", searchInput);
+document
+  .querySelectorAll("button")
+  .forEach((element) => element.classList.add("light"));
 
 // code for the select filter bar
 async function filter() {
@@ -140,6 +161,76 @@ async function filter() {
 
 //just a go-back button
 function goBack() {
-  document.getElementById("country-div").style.display = "block";
+  document.getElementById("country-div").style.display = "flex";
   document.getElementById("country").style.display = "none";
+  document.getElementById("search-filter").style.display = "flex";
+}
+
+function darkMode() {
+  if (!darkModeOn) {
+    document
+      .querySelectorAll(".light")
+      .forEach((element) => element.classList.add("dark"));
+    document
+      .querySelectorAll(".light")
+      .forEach((element) => element.classList.remove("light"));
+    document
+      .querySelectorAll("p")
+      .forEach((element) => (element.style.color = "white"));
+    document
+      .querySelectorAll("h2")
+      .forEach((element) => (element.style.color = "white"));
+    document
+      .querySelectorAll("h3")
+      .forEach((element) => (element.style.color = "white"));
+    document.getElementById("country-div").style.backgroundColor =
+      "hsl(207, 26%, 17%)";
+    document.getElementById("search-filter").style.backgroundColor =
+      "hsl(207, 26%, 17%)";
+    document.getElementById("country").style.backgroundColor =
+      "hsl(207, 26%, 17%)";
+    document.body.style.backgroundColor = "hsl(207, 26%, 17%)";
+
+    document
+      .querySelectorAll(".icon-light")
+      .forEach((element) => element.classList.add("icon-dark"));
+    document
+      .querySelectorAll(".icon-light")
+      .forEach((element) => element.classList.remove("icon-light"));
+    document.getElementById("search-icon").style.display = "none";
+    document.getElementById("search-icon-dark").style.display = "flex";
+    darkModeOn = true;
+  } else {
+    document
+      .querySelectorAll(".dark")
+      .forEach((element) => element.classList.add("light"));
+    document
+      .querySelectorAll(".dark")
+      .forEach((element) => element.classList.remove("dark"));
+    document
+      .querySelectorAll("p")
+      .forEach((element) => (element.style.color = "black"));
+    document
+      .querySelectorAll("h2")
+      .forEach((element) => (element.style.color = "black"));
+    document
+      .querySelectorAll("h3")
+      .forEach((element) => (element.style.color = "black"));
+    document.getElementById("country-div").style.backgroundColor =
+      "hsl(0, 0%, 98%)";
+    document.getElementById("search-filter").style.backgroundColor =
+      "hsl(0, 0%, 98%)";
+    document.getElementById("country").style.backgroundColor =
+      "hsl(0, 0%, 98%)";
+    document.body.style.backgroundColor = "hsl(0, 0%, 98%)";
+    document
+      .querySelectorAll(".icon-dark")
+      .forEach((element) => element.classList.add("icon-light"));
+    document
+      .querySelectorAll(".icon-dark")
+      .forEach((element) => element.classList.remove("icon-dark"));
+    document.getElementById("search-icon").style.display = "flex";
+    document.getElementById("search-icon-dark").style.display = "none";
+    darkModeOn = false;
+  }
 }

@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./resources/header.css" />
 
-    <!-- <link rel="stylesheet" href="./resources/country-filter.css" /> -->
+    <link rel="stylesheet" href="./resources/country-page.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,78 +15,101 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="./resources/country-page.css" />
-
     <title>countries</title>
   </head>
   <body>
-    <header>
+    <header class="light">
       <h1>Where in the World?</h1>
-      
+      <div class="dark-mode-text">
+        <div id="dark-mode-on-click" onclick="darkMode()">
+          <img
+            class="dark-icon icon-light"
+            src="./resources/moon-outline.svg"
+          />
+          <p>Dark Mode</p>
+        </div>
+      </div>
     </header>
 
-    
-    <div class="dark-mode">
-      
-      <img class="dark-icon" src="./resources/moon-outline.svg" >
-      <p>Dark Mode</p>
-    </div>
-    
-    
-    <div class="search-bar-input">
-    
-        <img class="search-icon" src="./resources/search-outline.svg" >
-      
-
-
-
-    <div id="country-div">
-      <input
-        type="text"
-        name=""
-        id="search-bar"
-        placeholder="Search for a country..."
-      />
-
+    <div id="search-filter">
+      <div class="search-bar-input">
+        <div id="absolute-container">
+          <img id="search-icon" src="./resources/search-outline.svg" />
+          <img id="search-icon-dark" src="./resources/search-dark.svg" />
+        </div>
+        <input
+          class="light"
+          type="text"
+          name=""
+          id="search-bar"
+          placeholder="Search for a country..."
+          autocomplete="off"
+        />
+      </div>
       <div class="region-filter" style="width: 200px">
-        <select name="countries" id="filter-select" onchange="filter()">
+        <select
+          class="light"
+          name="countries"
+          id="filter-select"
+          onchange="filter()"
+        >
           <option id="fil" class="filter" value="" disabled selected hidden>
-
             Filter by Region
           </option>
-          <option value="all">all</option>
+
+          <option value="All">all</option>
+
           <option value="africa">Africa</option>
           <option value="americas">America</option>
           <option value="europe">Europe</option>
           <option value="asia">Asia</option>
           <option value="oceania">Oceania</option>
         </select>
-
       </div>
     </div>
 
-    <div id="country">
-      <div class="img-button-div">
-        <button id="back-button" onclick="goBack()">back</button>
-        <img id="flag" src="" alt="" />
-      </div>
-      <h2 id="name"></h2>
-      <div class="text-div-container">
-        <div class="text-div">
-          <p class="attributes" id="native-name"></p>
+    <div id="country-div"></div>
 
-          <p class="attributes" id="population"></p>
-          <p class="attributes" id="region"></p>
-          <p class="attributes" id="subregion"></p>
-          <p class="attributes" id="capital"></p>
+    <div id="country">
+      <div id="button-styling-div">
+        <div id="button-holder">
+          <button
+            id="back-button"
+            style="font-size: 16px; font-weight: 400"
+            onclick="goBack()"
+          >
+            <img
+              class="back-button-icon icon-light"
+              src="./resources/arrow-back-outline.svg"
+            />
+            Back
+          </button>
         </div>
-        <div class="text-div second-text">
-          <p class="attributes" id="top-level-domain"></p>
-          <p class="attributes" id="currencies"></p>
-          <p class="attributes" id="languages"></p>
+        <div id="empty-div"></div>
+      </div>
+
+      <div class="text-div-container">
+        <div class="img-button-div">
+          <img id="flag" src="" alt="" />
+        </div>
+        <div class="text-div-wrapper">
+          <h2 id="name"></h2>
+          <div class="text-div">
+            <p class="attributes" id="native-name"></p>
+
+            <p class="attributes" id="population"></p>
+            <p class="attributes" id="region"></p>
+            <p class="attributes" id="subregion"></p>
+            <p class="attributes" id="capital"></p>
+          </div>
+          <div class="text-div second-text">
+            <p class="attributes" id="top-level-domain"></p>
+            <p class="attributes" id="currencies"></p>
+            <p class="attributes" id="languages"></p>
+          </div>
+          <div id="borderButtons"></div>
         </div>
       </div>
-      <div id="borderButtons"></div>
     </div>
 
     <script src="./resources/app.js"></script>

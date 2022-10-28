@@ -33,6 +33,7 @@
       <div class="search-bar-input">
         <div id="absolute-container">
           <img id="search-icon" src="./resources/search-outline.svg" />
+          <img id="search-icon-dark" src="./resources/search-dark.svg" />
         </div>
         <input
           class="light"
@@ -40,6 +41,7 @@
           name=""
           id="search-bar"
           placeholder="Search for a country..."
+          autocomplete="off"
         />
       </div>
       <div class="region-filter" style="width: 200px">
@@ -52,6 +54,7 @@
           <option id="fil" class="filter" value="" disabled selected hidden>
             Filter by Region
           </option>
+          <option value="All">all</option>
           <option value="africa">Africa</option>
           <option value="americas">America</option>
           <option value="europe">Europe</option>

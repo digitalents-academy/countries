@@ -132,7 +132,7 @@ let searchInput = function () {
     //also region needs to match the region variable
     if (
       cards[i].id.includes(searchBar.value) &&
-      (region === "" || cards[i].classList.contains(region))
+      (region === "all" || cards[i].classList.contains(region))
     ) {
       cards[i].style.display = "block";
     } else {
@@ -166,7 +166,6 @@ function goBack() {
 
 function darkMode() {
   if (!darkModeOn) {
-    console.log("asd");
     document
       .querySelectorAll(".light")
       .forEach((element) => element.classList.add("dark"));
@@ -196,6 +195,8 @@ function darkMode() {
     document
       .querySelectorAll(".icon-light")
       .forEach((element) => element.classList.remove("icon-light"));
+    document.getElementById("search-icon").style.display = "none";
+    document.getElementById("search-icon-dark").style.display = "flex";
     darkModeOn = true;
   } else {
     document
@@ -226,7 +227,8 @@ function darkMode() {
     document
       .querySelectorAll(".icon-dark")
       .forEach((element) => element.classList.remove("icon-dark"));
-
+    document.getElementById("search-icon").style.display = "flex";
+    document.getElementById("search-icon-dark").style.display = "none";
     darkModeOn = false;
   }
 }

@@ -48,11 +48,21 @@ header h1 {
   padding-right: 5%;
   width: 50%;
 }
+
+#dark-mode-on-click {
+  display: flex;
+  cursor: pointer;
+}
+
 .dark-mode-text p {
   font-weight: 600;
   font-size: 16px;
   padding: 0;
   margin: 3px;
+}
+
+.dark-mode-text p:hover {
+  cursor: pointer;
 }
 
 #country-div {
@@ -190,6 +200,10 @@ select {
   /* margin-top: 7px; */
 
   z-index: 10;
+}
+
+.dark-icon:hover {
+  cursor: pointer;
 }
 
 .icon-dark {
@@ -337,7 +351,6 @@ select {
 }
 #empty-div {
   min-width: 40%;
-  border: solid green;
 }
 
 #button-holder {

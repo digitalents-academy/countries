@@ -33,7 +33,6 @@ async function getAll() {
 
     card.classList.add("card-div", element.region.toLowerCase(), "light");
 
-
     //give the click event to every card so when we click on the country a command will be executed
     card.addEventListener("click", function () {
       document.getElementById("country-div").style.display = "none";

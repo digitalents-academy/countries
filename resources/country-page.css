@@ -4,11 +4,6 @@
   font-weight: 600;
 }
 
-/* .text-div-container {
-  display: flex;
-  flex-direction: column;
-} */
-
 /* Selects all the attributes of the country and give them all their ID as attribute name with the content: attr(id) ": " */
 .attributes::before {
   content: attr(id) ": ";
@@ -32,9 +27,3 @@
   display: flex;
   flex-direction: column;
 }
-
-/* #back-button {
-  width: 125px;
-
-  margin-bottom: 4rem;
-} */

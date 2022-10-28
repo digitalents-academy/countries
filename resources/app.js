@@ -30,7 +30,9 @@ async function getAll() {
     region.setAttribute("data-parent", "region");
     capital.setAttribute("data-parent", "capital");
     //adds a class to the card div and we call it like the name of the region of the country and set it to lower case
+
     card.classList.add("card-div", element.region.toLowerCase(), "light");
+
 
     //give the click event to every card so when we click on the country a command will be executed
     card.addEventListener("click", function () {
@@ -123,7 +125,7 @@ getAll();
 // code for the search bar
 let searchBar = document.getElementById("search-bar");
 let cards = document.getElementsByClassName("card-div");
-let region = "";
+let region = "all";
 
 let searchInput = function () {
   for (let i = 0; i < cards.length; i++) {
